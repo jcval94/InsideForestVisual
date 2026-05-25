@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InsideForestVisual - Generado en Python</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <main class="max-w-6xl mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-2">InsideForestVisual - HTML Generado</h1>
+    <p class="text-slate-300 mb-4">Dataset: titania_sintetico | Filas usadas: 280 | Features: temperature, density, hardness, impurity_ratio</p>
+    <p class="text-slate-400 mb-4 text-sm">Sampling: no aplicado (none)</p>
+    <h2 class="text-xl font-semibold mt-6">Ranking (TVD)</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm mt-2 border border-slate-800">
+        <thead><tr class="bg-slate-900"><th class="p-2">ID</th><th class="p-2">Experimento</th><th class="p-2">TVD</th><th class="p-2">A|I|B</th></tr></thead>
+        <tbody>
+          <tr><td class="p-2">2</td><td class="p-2">Matriz mecánica</td><td class="p-2">0.635</td><td class="p-2">95|0|141</td></tr><tr><td class="p-2">1</td><td class="p-2">Pureza baja vs alta</td><td class="p-2">0.595</td><td class="p-2">141|0|98</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl font-semibold mt-6">Configuración embebida</h2>
+    <pre class="text-xs bg-slate-900 p-4 rounded border border-slate-800 overflow-auto" id="payload"></pre>
+  </main>
+  <script>
+    const payload = {"dataset_config": {"dataset_id": "titania_sintetico", "feature_columns": ["temperature", "density", "hardness", "impurity_ratio"], "target_column": "grade", "id_column": "sample_id", "missing_strategy": "drop", "scaling_mode_default": "raw", "random_seed": 98765, "sampling_threshold": 2500, "sample_size": 2500, "sampling_strategy": "stratified", "target_mode": "classification", "regression_bins": 10}, "sampling_info": {"applied": false, "strategy": "none", "original_rows": 280, "final_rows": 280}, "target_mode_info": {"requested": "classification", "effective": "classification", "bins": 10}, "evaluation_config": {"primary_metric": "tvd", "min_samples_only_a": 5, "min_samples_only_b": 5, "ranking_order": "desc"}, "experiments": [{"id": 2, "name": "Matriz mecánica", "description": "Dureza y densidad", "target_column": "grade", "enabled": true, "tags": ["materials", "robustness"], "rules": {"intersection": [{"field": "density", "min": 6.4, "max": 10.5, "native": "raw"}], "only_cluster_a": [{"field": "hardness", "min": 1.5, "max": 3.0, "native": "raw"}], "only_cluster_b": [{"field": "hardness", "min": 3.1, "max": 5.6, "native": "raw"}]}}, {"id": 1, "name": "Pureza baja vs alta", "description": "Frontera por impureza", "target_column": "grade", "enabled": true, "tags": ["quality"], "rules": {"intersection": [{"field": "temperature", "min": 57, "max": 65, "native": "raw"}], "only_cluster_a": [{"field": "impurity_ratio", "min": 0.18, "max": 0.4, "native": "raw"}], "only_cluster_b": [{"field": "impurity_ratio", "min": 0.01, "max": 0.16, "native": "raw"}]}}], "ranking": [{"id": 2, "name": "Matriz mecánica", "tvd": 0.635013, "onlyA": 95, "intersection": 0, "onlyB": 141}, {"id": 1, "name": "Pureza baja vs alta", "tvd": 0.594949, "onlyA": 141, "intersection": 0, "onlyB": 98}]};
+    document.getElementById('payload').textContent = JSON.stringify(payload, null, 2);
+  </script>
+</body>
+</html>
